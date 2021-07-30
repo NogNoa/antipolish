@@ -170,6 +170,13 @@ char * alt_strcat(char *s, char *t)
 	return calls;
 }
 
+#ifndef size_t
+	#include <stddef.h>
+#endif
+#ifndef strlen
+	#include <string.h>
+#endif
+
 size_t strlen(const char *);
 
 _Bool strend(char *s, char *t)
