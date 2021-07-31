@@ -41,7 +41,7 @@
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
 #include <math.h> /* for sin, exp, pow, etc. */
-#include "add_remove-string.lb.c"
+#include "compare.lb.c"
 #define MAXOP 100 /* max size of operand or operator */
 #define NUMBER '0' /* signal that a number was found */
 #define CMD '1' /* signal that a alphabetic string was found */
@@ -53,7 +53,6 @@ void fifo_print_all(void);
 void push(double);
 double pop(_Bool idntt);
 double fmod(double dend,double sor);
-_Bool compare(char s[], char sh[]); /* from add_remove-string.lb.c */
 double ans=0;
 
 int main(int argc, char *argv[])
@@ -155,9 +154,9 @@ void fifo_print_all(void)
 	putchar('\n');
 }
 
-inline void show(void)
+void show(void)
 {
-	printf("%.8g ",(ans=val[sp-1]));
+	printf("\t%.8g\n",(ans=val[sp-1]));
 }
 
 void duplicate(void)
@@ -175,7 +174,7 @@ void swap_top(void)
 	val[sp-2] = temp;
 }
 
-inline void stack_clear(void)
+void stack_clear(void)
 {
 	sp=0;
 }
@@ -237,17 +236,13 @@ void getvar(char s[])
 	}
 }
 
-
-void show(void);
-void stack_clear(void);
-
 void getcmd(char s[])
 {
 	int i;
 	char c;
 	double op2;
 
-	for (i=2;(s[i] = c = getch()) != ' ' && c != '\t' && c!= '\n';++i)
+	for (i=2;!isspace(s[i] = c = getch());++i)
 		;
 	if (compare(s,"showall"))
 		fifo_print_all();
