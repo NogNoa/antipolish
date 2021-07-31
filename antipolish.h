@@ -8,3 +8,5 @@ _Bool compare(char s[], char sh[]);
 void push(double);
 double pop(_Bool idntt);
 void fifo_print_all(void);
+
+double ans;

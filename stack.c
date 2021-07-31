@@ -2,8 +2,6 @@
 
 #define MAXVAL 100 /* maximum depth of val stack */
 
-double ans;
-
 int sp = 0; /* next free stack position */
 double val[MAXVAL]; /* value stack */
 
