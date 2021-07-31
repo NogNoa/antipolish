@@ -14,7 +14,7 @@ getop.o : getop.c stack.h $(DEPS)
 	$(OBJPILE)
 
 %.o: %.c 
-	 $(CC) $(CFLAGS) -c -o $@ $<
+	 $(OBJPILE)
 
 antipolish: $(OBJ)
-	$(CC) $(OBJ) -o antipolish.elf -lm
+	$(CC) $(OBJ) -o $@.elf $(CFLAGS)  -lm
