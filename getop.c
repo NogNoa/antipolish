@@ -12,12 +12,12 @@ int getop(char s[])
 	char c;
 	
 	s[0]=' ';
-	while ((s[1] = c = getch()) == ' ' || c == '\t' || c == '\n')
+	while (isspace(s[1] = c = getch()))
 		;
 	s[2] = '\0';
-	if ('a'< c && c < 'z')
+	if (islower(c))
 		return CMD;
-	if ('A' <= c && c <= 'Z')
+	if (isupper(c))
 		return VAR;
 	if (!isdigit(c) && c != '.')	
 		return c; /* not a number */
@@ -42,7 +42,7 @@ void getvar(char s[])
 {
 	char c,v=s[1];
 
-	while ((c = getch()) == ' ' || c == '\t' || c == '\n')
+	while (isspace(c = getch()))
 		;
 	if (c == '$')
 	{	var[v-'A']=pop(0);
