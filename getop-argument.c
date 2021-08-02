@@ -1,3 +1,8 @@
+#include <stdio.h>
+
+void push(double);
+double pop(_Bool idntt);
+
 void shorthop(char op)
 {
 	;
@@ -11,7 +16,7 @@ void fetch_var(char v)
 	if (var_able[v-'A'])
 		push(var[v-'A']);
 	else
-		printf("error: unassigned variable %c\n",v);
+		fprintf(stderr,"error: unassigned variable %c\n",v);
 }
 
 

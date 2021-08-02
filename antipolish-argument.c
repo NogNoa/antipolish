@@ -2,7 +2,7 @@
 
 void parse(char*);
 
-int ans=0;
+double ans=0;
 
 int main(int argc, char *argv[])
 {
@@ -22,11 +22,11 @@ void parse(char* arg)
 			num =0;
 	if (num)
 		push(atof(arg));
-	if (isupper(arg[0]) && arg[1] == '$')
-		fetch_var(arg[1])
+	else if (isupper(arg[0]) && arg[1] == '$')
+		assign_var(arg[0]);
 	else if (strlen(arg) == 1)
 		if (isupper(*arg))
-			assign_var(*arg)
+			fetch_var(*arg);
 		else switch (*arg) {
 			case '_':
 					push(ans);
@@ -60,7 +60,7 @@ void parse(char* arg)
 				push(1/pop(1));
 			break;
 			case '~':
-				push(-pop(0))
+				push(-pop(0));
 			break;
 			case '=':
 			case '\n':

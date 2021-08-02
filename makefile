@@ -5,7 +5,7 @@ APA = antipolish-argument
 ODIR = obj
 _OBJ = compare.o molon.lb.o getop.o stack.o antipolish.o
 OBJ = $(patsubst %, $(ODIR)/%, $(_OBJ))
-OBJA = $(ODIR)/$(APA).o $(ODIR)/stack.o
+OBJA = $(ODIR)/$(APA).o $(ODIR)/stack.o $(ODIR)/getop-argument.o
 OBJPILE = $(CC) $(CFLAGS) -c -o $@ $<
 
 $(ODIR)/antipolish.o : antipolish.c $(DEPS)
@@ -19,6 +19,7 @@ $(ODIR)/getop.o : getop.c stack.h $(DEPS)
 
 $(ODIR)/$(APA).o : $(APA).c $(APA).h
 	$(OBJPILE)
+
 
 $(ODIR)/%.o: %.c 
 	 $(OBJPILE)
