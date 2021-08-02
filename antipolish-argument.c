@@ -22,7 +22,7 @@ void parse(char* arg)
 			num =0;
 	if (num)
 		push(atof(arg));
-	if (arg[0] == '$' && isupper(arg[1]))
+	if (isupper(arg[0]) && arg[1] == '$')
 		fetch_var(arg[1])
 	else if (strlen(arg) == 1)
 		if (isupper(*arg))

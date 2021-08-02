@@ -38,9 +38,9 @@ int getop(char s[])
 _Bool var_able[26];
 float var[26]={0};
 
-void getvar(char s[])
+void getvar(char v)
 {
-	char c,v=s[1];
+	char c;
 
 	while (isspace(c = getch()))
 		;

@@ -45,7 +45,7 @@
 
 int getop(char []);
 void getcmd(char s[]);
-void getvar(char s[]);
+void getvar(char s);
 double fmod(double dend,double sor);
 double floor(double);
 double ans=0;
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 				getcmd(s);
 			break;
 			case VAR:
-				getvar(s);
+				getvar(s[1]);
 			break;
 			case '+':
 				push(pop(0) + pop(0));
