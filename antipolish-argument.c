@@ -15,8 +15,9 @@ void parse(char* arg)
 	char c;
 	double op2;
 
-	for (int i=0;(c=arg[i++]) && (num &= isdigit(c));)
-		;
+	for (int i=0;(c=arg[i++]) && num ;)
+		if (!isdigit(c))
+			num =0;
 	if (num)
 		push(atof(arg));
 	else if (strlen(arg) == 1)

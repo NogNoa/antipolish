@@ -30,7 +30,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${cwd}/apa.elf",
-            "args": ["4", "4", "+"],
+            "args": ["43", "42", "+", "="],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
