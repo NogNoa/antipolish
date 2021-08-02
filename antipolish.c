@@ -52,7 +52,7 @@ double ans=0;
 
 int main(int argc, char *argv[])
 {	/* reverse Polish calculator */
-	if (compare(argv[1],"-h"))
+	if (argc > 1 && compare(argv[1],"-h"))
 	{	printf("\tAllowed input:\r\n\t\t\t\t  digits for numbers,\r\n\t\t\t\t  lowercase for commands some operators,\r\n\t\t\t\t  UPPER CASE for variables,\r\n\t\t\t\t  symbols for the rest of the operators.\r\n\t\r\n\r\n\tunary operators : ~, :, $, sin, cos, exp, log, sqrt, abs\r\n\tbinary operators: +, -, *, /, %%, pow\r\n\tcontrol commands: =, show, showall, dupp, swap, clear\r\n\t\r\n\t\r\n\tthe calculator use polish notation, every operator is postfixial\t\r\n\r\n\tVariables are single uppercase letter, they are assigned with \r\n\t$ and called without it\r\n\t\r\n\tExample: \"3 A &\" assigns 3 to A. \"2 A * =\" than returns \"6\". \r\n\t\r\n\t_ is variable that is always assigned the last printed value.\r\n\r\n\r\n\t=    returns the most recent input or product and remove it from the stack\r\n\tshow\tdoes the same without removing it.\r\n\tshowall\t\tprints the whole stuck\r\n\tdupp\tduplicate the whole stuck (AB -> ABAB, not AABB)\r\n\tswap\tswaps the last two elements on top of the stack\r\n\tclear \tdeletes the stack.\r\n\t~\tis the unary - (turns positive to negative and v.v)\r\n\t:\tturns a number into its reciprocal.  \r\n\t%% \tis mod division\r\n\n");
 		return 0;
 	}
