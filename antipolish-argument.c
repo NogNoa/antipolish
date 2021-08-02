@@ -22,8 +22,12 @@ void parse(char* arg)
 			num =0;
 	if (num)
 		push(atof(arg));
+	if (arg[0] == '$' && isupper(arg[1]))
+		fetch_var(arg[1])
 	else if (strlen(arg) == 1)
-		switch (*arg) {
+		if (isupper(*arg))
+			assign_var(*arg)
+		else switch (*arg) {
 			case '_':
 					push(ans);
 			break;
