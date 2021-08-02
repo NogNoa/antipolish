@@ -7,6 +7,7 @@ _OBJ = compare.o molon.lb.o getop.o stack.o antipolish.o
 OBJ = $(patsubst %, $(ODIR)/%, $(_OBJ))
 OBJA = $(ODIR)/$(APA).o $(ODIR)/stack.o $(ODIR)/getop-argument.o
 OBJPILE = $(CC) $(CFLAGS) -c -o $@ $<
+COMPILE = $(CC) $^ -o $@.elf $(CFLAGS)  -lm
 
 $(ODIR)/antipolish.o : antipolish.c $(DEPS)
 	$(OBJPILE)
@@ -26,7 +27,7 @@ $(ODIR)/%.o: %.c
 	 $(OBJPILE)
 
 antipolish: $(OBJ)
-	$(CC) $(OBJ) -o $@.elf $(CFLAGS)  -lm
+	$(COMPILE)
 
 apa: $(OBJA)
-	$(CC) $(OBJA) -o $@.elf $(CFLAGS)  -lm
+	$(COMPILE)
