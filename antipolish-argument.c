@@ -2,6 +2,8 @@
 
 void parse(char*);
 
+int ans=0;
+
 int main(int argc, char *argv[])
 {
 	for (argv++;argc>1;argc--)
@@ -22,10 +24,14 @@ void parse(char* arg)
 		push(atof(arg));
 	else if (strlen(arg) == 1)
 		switch (*arg) {
+			case '_':
+					push(ans);
+			break;
 			case '+':
 				push(pop(0) + pop(0));
 			break;
 			case '*':
+			case 'x':
 				push(pop(1) * pop(1));
 			break;
 			case '-':
@@ -48,6 +54,9 @@ void parse(char* arg)
 			break;
 			case ':':
 				push(1/pop(1));
+			break;
+			case '~':
+				push(-pop(0))
 			break;
 			case '=':
 			case '\n':
