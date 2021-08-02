@@ -48,6 +48,7 @@ void getcmd(char s[]);
 void getvar(char s);
 double fmod(double dend,double sor);
 double floor(double);
+void fifo_print_all(void);
 double ans=0;
 
 int main(int argc, char *argv[])

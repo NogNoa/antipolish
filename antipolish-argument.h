@@ -8,5 +8,7 @@ void push(double);
 double pop(_Bool idntt);
 void fetch_var(char v);
 void assign_var(char v);
+void shortop(char op);
+void getcmd(char s[]);
 
 double ans;

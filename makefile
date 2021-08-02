@@ -20,6 +20,7 @@ $(ODIR)/getop.o : getop.c stack.h $(DEPS)
 $(ODIR)/$(APA).o : $(APA).c $(APA).h
 	$(OBJPILE)
 
+$(ODIR)/getop-arguments.o: getop-arguments.c $(APA).h stack.h
 
 $(ODIR)/%.o: %.c 
 	 $(OBJPILE)
