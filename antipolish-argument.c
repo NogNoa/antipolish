@@ -1,15 +1,15 @@
 #include "antipolish-argument.h"
 
-void getop2(char*);
+void parse(char*);
 
 int main(int argc, char *argv[])
 {
-	for (;argc>0;argc--)
-		getop2(*argv++);
+	for (argv++;argc>1;argc--)
+		parse(*argv++);
 	return 0;
 }
 
-void getop2(char* arg)
+void parse(char* arg)
 {
 	_Bool num=1;
 	char c;
@@ -49,6 +49,7 @@ void getop2(char* arg)
 				push(1/pop(1));
 			break;
 			case '=':
+			case '\n':
 				printf("\t%.8g\n", (ans=pop(0)));
 			break;
 			default:

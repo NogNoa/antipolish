@@ -27,4 +27,4 @@ antipolish: $(OBJ)
 	$(CC) $(OBJ) -o $@.elf $(CFLAGS)  -lm
 
 apa: $(OBJA)
-	$(CC) $(OBJA) -o $(APA).elf $(CFLAGS)  -lm
+	$(CC) $(OBJA) -o $@.elf $(CFLAGS)  -lm

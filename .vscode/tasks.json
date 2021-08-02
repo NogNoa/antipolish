@@ -17,6 +17,21 @@
             "kind": "build",
             "isDefault": true
           }
+        },
+        {
+          "type": "shell",
+          "label": "antipolish-argument",
+          "command": "/usr/bin/gcc",
+          "args": ["${cwd}/antipolish-argument.c", "${cwd}/stack.c", 
+              "-Wall", "-g", "-o", "${cwd}/apa.elf", "-lm"],
+          "options": {
+            "cwd": "${fileDirname}"
+          },
+          "problemMatcher": ["$gcc"],
+          "group": {
+            "kind": "build",
+            "isDefault": true
+          }
         }
       ]
     }
