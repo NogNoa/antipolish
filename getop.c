@@ -3,16 +3,13 @@
 #include "antipolish.h"
 #include "stack.h"
 
-int getch(void);
-void ungetch(int);
-
 int getop(char s[])
 {	/* getop: get next character or numeric operand */
 	int i;
 	char c;
 	
 	s[0]=' ';
-	while (isspace(s[1] = c = getch()))
+	while (isspace(s[1] = c = getchar()))
 		;
 	s[2] = '\0';
 	if (islower(c))
@@ -23,14 +20,14 @@ int getop(char s[])
 		return c; /* not a number */
 	i = 1;
 	if (isdigit(c)) /* collect integer part */
-		while (isdigit(s[++i] = c = getch()))
+		while (isdigit(s[++i] = c = getchar()))
 			;
 	if (c == '.') /* collect fraction part */
-		while (isdigit(s[++i] = c = getch()))
+		while (isdigit(s[++i] = c = getchar()))
 			;
 	if (c == '~')
 		s[0] = '-';
-	ungetch(c);
+	ungetc(c,stdin);
 	s[i] = '\0';
 	return NUMBER;
 }
@@ -42,7 +39,7 @@ void getvar(char v)
 {
 	char c;
 
-	while (isspace(c = getch()))
+	while (isspace(c = getchar()))
 		;
 	if (c == '$')
 	{	var[v-'A']=pop(0);
@@ -53,7 +50,7 @@ void getvar(char v)
 			push(var[v-'A']);
 		else
 			printf("error: undefined variable %c\n",v);
-		ungetch(c);
+		ungetc(c,stdin);
 	}
 }
 
@@ -63,7 +60,7 @@ void getcmd(char s[])
 	char c;
 	double op2;
 
-	for (i=2;!isspace(s[i] = c = getch());++i)
+	for (i=2;!isspace(s[i] = c = getchar());++i)
 		;
 	if (compare(s,"showall"))
 		fifo_print_all();
@@ -94,5 +91,5 @@ void getcmd(char s[])
 	else
 		printf("error: unknown literal %s\n", s);
 	s[i+1]='\0';
-	ungetch(c);
+	ungetc(c,stdin);
 }
